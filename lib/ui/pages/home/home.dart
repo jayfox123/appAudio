@@ -1,0 +1,57 @@
+import 'package:app_audio/features/data/get_category_data.dart';
+import 'package:flutter/material.dart';
+import '../home/widget/home_appbar.dart';
+import '../home/widget/home_listcategories.dart';
+import '../home/widget/home_slidar.dart';
+import '../home/customs/custom_home_slidercategorytitle.dart';
+import '../home/widget/home_subslider_category.dart';
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  ApiDataCategoryMovie apiSlider = ApiDataCategoryMovie();
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              SizedBox(height: 40),
+              HomeAppBar(),
+              SizedBox(height: 30),
+              SliderLatestMovie(),
+              SizedBox(height: 30),
+              ListCategories(),
+              CustomSliderCategoryMovieTitle(title: "My list", onPressed: () {}),
+              CategoryItemsMovieSliderSubCenter(),
+              CustomSliderCategoryMovieTitle(title: "Popular on Netflix", onPressed: () {}),
+              CategoryItemsMovieSliderSubCenter(),
+            ],
+            
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
