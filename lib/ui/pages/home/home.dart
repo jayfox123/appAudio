@@ -17,6 +17,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: Drawer(),
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -25,11 +26,11 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               SizedBox(height: 40),
-              HomeAppBar(),
+              HomeAppBar(), /// AppBar [AppBar]
+              SizedBox(height: 30), /// Margin
+              SliderLatestMovie(), /// [Slider] latest 
               SizedBox(height: 30),
-              SliderLatestMovie(),
-              SizedBox(height: 30),
-              ListCategories(),
+              ListCategories(), /// List [Category]
               CustomSliderCategoryMovieTitle(title: "My list", onPressed: () {}),
               CategoryItemsMovieSliderSubCenter(),
               CustomSliderCategoryMovieTitle(title: "Popular on Netflix", onPressed: () {}),

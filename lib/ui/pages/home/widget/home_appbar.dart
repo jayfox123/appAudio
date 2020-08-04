@@ -18,13 +18,18 @@ class HomeAppBar extends StatelessWidget {
       children: <Widget>[
 
         /// this is Image [Menu]
-        CachedNetworkImage(
-          width: 25,
-          height: 25,
-          imageUrl:
-              "https://cdn4.iconfinder.com/data/icons/simplicity-1/48/menu-512.png",
-          placeholder: (context, url) => CircularProgressIndicator(),
-          errorWidget: (context, url, error) => Icon(Icons.error),
+        GestureDetector(
+          onTap: (){
+            Scaffold.of(context).openDrawer();
+          },
+          child: CachedNetworkImage(
+            width: 25,
+            height: 25,
+            imageUrl:
+                "https://cdn4.iconfinder.com/data/icons/simplicity-1/48/menu-512.png",
+            placeholder: (context, url) => CircularProgressIndicator(),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
         ),
         
         /// this is Image like [Hero]
@@ -38,7 +43,11 @@ class HomeAppBar extends StatelessWidget {
         ),
 
         /// latest Icon as [Search]
-        Icon(Icons.search, color: Color(0xFF333333), size: 30),
+        IconButton(icon: Icon(Icons.search, color: Color(0xFF333333), size: 30),onPressed: (){
+          Scaffold.of(context).showSnackBar( SnackBar(
+            content: Text("Not Found this is Element"),
+          ) );
+        })
         
       ],
     );
