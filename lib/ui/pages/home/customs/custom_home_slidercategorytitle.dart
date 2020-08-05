@@ -1,3 +1,4 @@
+import 'package:app_audio/ui/theme/all_style.dart';
 import 'package:flutter/material.dart';
 
 /// This is Diviret list Make for [Name] And [Button]
@@ -28,10 +29,7 @@ class CustomSliderCategoryMovieTitle extends StatelessWidget {
             
             Text(
               title,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
+              style: sliderCategoryStyle
             ),
 
             /// This is Button Push To Page Show More

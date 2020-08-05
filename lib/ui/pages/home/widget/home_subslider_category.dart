@@ -6,6 +6,7 @@ import '../customs/custom_hoveride_category.dart';
 /// And [EndMovie]
 /// This is Main Categories and all Card like To Element from Categories
 
+// ignore: must_be_immutable
 class CategoryItemsMovieSliderSubCenter extends StatelessWidget {
   ApiDataCategoryMovie apiSlider = ApiDataCategoryMovie();
   CategoryItemsMovieSliderSubCenter({
@@ -23,8 +24,12 @@ class CategoryItemsMovieSliderSubCenter extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
           return CustomCardListMovie(
-            name: apiSlider.allMovie[index].name,
-            image: apiSlider.allMovie[index].urlImage,
+            categoryMovie: apiSlider.allMovie[index],
+            onPressed:(){
+              /// class [WatchPage] 
+              /// [CategoryMovie] categoryMovie
+              
+            }
           );
         },
       ),

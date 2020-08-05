@@ -1,6 +1,7 @@
 import 'package:app_audio/features/bloc/bloc_categries.dart';
 import 'package:app_audio/features/data/get_category_data.dart';
 import 'package:app_audio/features/model/category_movie_model.dart';
+import 'package:app_audio/ui/pages/watch/watch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../customs/custom_home_cardcategories.dart';
@@ -17,7 +18,10 @@ class _ListCategoriesState extends State<ListCategories> {
   ApiDataCategoryMovie apiSlider = ApiDataCategoryMovie();
 
   /// This is [Bloc] that [Widget]  name is [ButtonsCategoriesCubit]
+   /// This List [Categories] [ListView]
+    
     CategoriesBloc category = CategoriesBloc();
+
   @override
   void initState() {
     context.bloc<CategoriesBloc>().add( CategoriesEvent.initial );
@@ -36,14 +40,13 @@ class _ListCategoriesState extends State<ListCategories> {
             itemCount: state.length,
             itemBuilder: (BuildContext context, int index) {
               return CustomCardCategoryHome(
-                name: state[index].name,
-                imageUrl: state[index].urlImage,
+                categoryMovie: state[index],
                 onPressed: () {
-                  Scaffold.of(context).showSnackBar( SnackBar(
-                    backgroundColor: Colors.teal,
-                    duration: Duration(seconds: 1 ),
-                  content: Text( state[index].name ),
-                ) );
+                   /// class [WatchPage] 
+                  /// [CategoryMovie] categoryMovie           
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => WatchPage(
+                    categoryMovie: state[index],
+                  ) ));
                 },
               );
             },

@@ -1,4 +1,5 @@
 import 'package:app_audio/features/data/get_category_data.dart';
+import 'package:app_audio/ui/theme/all_style.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -27,7 +28,7 @@ class SliderLatestMovie extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
-                  imageUrl: apiSlider.allMovie[index].urlImage,
+                  imageUrl: apiSlider.allMovie[index].imageUrl,
                   placeholder: (context, url) => CircularProgressIndicator(),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
@@ -36,11 +37,7 @@ class SliderLatestMovie extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   apiSlider.allMovie[index].name,
-                  style: TextStyle(
-                    fontSize: 23,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: centerSliderStyle
                 ),
               ),
             ],

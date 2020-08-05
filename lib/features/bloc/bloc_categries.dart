@@ -12,7 +12,8 @@ enum CategoriesEvent{
 class CategoriesBloc extends Bloc<CategoriesEvent,List<CategoryMovie>> {
   CategoriesBloc() : super([CategoryMovie(
     name: "404",
-    urlImage: "https://image.freepik.com/free-vector/glitch-error-404-page-background_23-2148072533.jpg"
+    videoUrl:"http://www.sample-videos.com/video123/mp4/240/big_buck_bunny_240p_1mb.mp4",
+    imageUrl: "https://image.freepik.com/free-vector/glitch-error-404-page-background_23-2148072533.jpg"
   )]);
 
   /// [ApiDataCategoryMovie]

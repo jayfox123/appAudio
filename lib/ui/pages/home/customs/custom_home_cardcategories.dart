@@ -1,3 +1,5 @@
+import 'package:app_audio/features/model/category_movie_model.dart';
+import 'package:app_audio/ui/theme/all_style.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -7,11 +9,10 @@ import 'package:flutter/material.dart';
 /// And Request [Name] And [Image] And [onPressed]
 
 class CustomCardCategoryHome extends StatelessWidget {
-  String name;
-  String imageUrl;
-  Function onPressed;
+  final CategoryMovie categoryMovie;
+  final Function onPressed;
 
-  CustomCardCategoryHome({Key key, this.name, this.imageUrl, this.onPressed})
+  CustomCardCategoryHome({Key key, this.categoryMovie, this.onPressed})
       : super(key: key);
 
   @override
@@ -32,7 +33,7 @@ class CustomCardCategoryHome extends StatelessWidget {
                 width: 130,
                 height: 80,
                 fit: BoxFit.fill,
-                imageUrl: imageUrl,
+                imageUrl: categoryMovie.imageUrl,
                 placeholder: (context, url) => CircularProgressIndicator(),
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
@@ -49,12 +50,8 @@ class CustomCardCategoryHome extends StatelessWidget {
               ),
             ),
             Text(
-              name,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-                color: Colors.white,
-              ),
+              categoryMovie.name,
+              style: centerCategoriesListStyle
             ),
           ],
         ),

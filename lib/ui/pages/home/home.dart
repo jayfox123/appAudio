@@ -1,4 +1,5 @@
 import 'package:app_audio/features/data/get_category_data.dart';
+import 'package:app_audio/ui/pages/show/show.dart';
 import 'package:flutter/material.dart';
 import '../home/widget/home_appbar.dart';
 import '../home/widget/home_listcategories.dart';
@@ -13,6 +14,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   ApiDataCategoryMovie apiSlider = ApiDataCategoryMovie();
+
+  void _showMore(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Show() ));
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -31,9 +36,9 @@ class _HomeState extends State<Home> {
               SliderLatestMovie(), /// [Slider] latest 
               SizedBox(height: 30),
               ListCategories(), /// List [Category]
-              CustomSliderCategoryMovieTitle(title: "My list", onPressed: () {}),
+              CustomSliderCategoryMovieTitle(title: "My list", onPressed: _showMore,),
               CategoryItemsMovieSliderSubCenter(),
-              CustomSliderCategoryMovieTitle(title: "Popular on Netflix", onPressed: () {}),
+              CustomSliderCategoryMovieTitle(title: "Popular on Netflix", onPressed: _showMore,),
               CategoryItemsMovieSliderSubCenter(),
             ],
             
